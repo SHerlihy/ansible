@@ -5,8 +5,6 @@
       apt:
         update_cache: true
       tags:
-        - node
-        - zsh
+      - node
   tasks:
     - include: ./node.yml
-    - include: ./zsh.yml
