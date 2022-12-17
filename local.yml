@@ -6,5 +6,7 @@
         update_cache: true
       tags:
       - node
+      - zsh
   tasks:
   - include: ./node.yml
+  - include: ./zsh.yml
