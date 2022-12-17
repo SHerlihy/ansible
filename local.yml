@@ -7,4 +7,4 @@
       tags:
       - node
   tasks:
-    - include: ./node.yml
+  - include: ./node.yml
