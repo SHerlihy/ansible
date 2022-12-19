@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
 apt install -y apt-add-repository
+apt install software-properties-common
 apt-get update -y
 
-## Install ansible
-apt-add-repository -y ppa:ansible/ansible
-apt-get update -y
-apt-get install -y curl git software-properties-common ansible
+apt-add-repository --yes --update ppa:ansible/ansible
+apt install ansible
 
 ## Pull my ansible
 ansible-pull -U https://github.com/SHerlihy/ansible
