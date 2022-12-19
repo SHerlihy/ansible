@@ -1,4 +1,4 @@
-#!/usr/bim/env bash
+#!/usr/bin/env bash
 
 ## Install ansible
 apt-add-repository -y ppa:ansible/ansible
