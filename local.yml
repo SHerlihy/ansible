@@ -11,8 +11,10 @@
         update_cache: true
         state: present
       tags:
+      - ssh
       - node
       - zsh
   tasks:
+  - include: ./ssh.yml
   - include: ./node.yml
   - include: ./zsh.yml
