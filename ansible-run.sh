@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-apt install apt-add-repository
+apt install -y apt-add-repository
 apt-get update -y
 
 ## Install ansible
