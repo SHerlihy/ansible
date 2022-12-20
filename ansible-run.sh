@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
+apt upgrade && apt update
 
+apt install -y git
 apt install -y software-properties-common
 apt update
 
