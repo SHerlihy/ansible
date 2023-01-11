@@ -7,4 +7,4 @@
     accept_hostkey: yes
     version: master
   tags:
-    - dotfiles
+  - dotfiles

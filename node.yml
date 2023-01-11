@@ -10,6 +10,6 @@
   tags:
   - node
 - name: n 16
-  shell : n 16
+  shell: n 16
   tags:
   - node
