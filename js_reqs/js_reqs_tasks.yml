@@ -1,0 +1,2 @@
+# setup to develop in javascript
+- include_tasks: node.yml
