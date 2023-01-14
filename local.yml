@@ -2,9 +2,10 @@
   become: true
   vars:
     source_key: "./.ssh/id_rsa"
-    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    dest_key: "{{ lookup('ansible.builtin.env', 'HOME') }}/.ssh/id_rsa"
   pre_tasks:
     - name: update cache
+      become: true
       apt:
         update_cache: true
       tags:
