@@ -1,16 +1,24 @@
 - hosts: localhost
-  become: true
   vars:
-    source_key: "./.ssh/id_rsa"
-    dest_key: "{{ lookup('ansible.builtin.env', 'HOME') }}/.ssh/id_rsa"
+    source_key: "{{ lookup('env', 'USER_HOME') }}/.ssh/id_ed25519"
+    pub_key: "{{ lookup('env', 'USER_HOME') }}/.ssh/id_ed25519.pub"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
   pre_tasks:
     - name: update cache
-      become: true
       apt:
+        force_apt_get: true
         update_cache: true
+        state: present
       tags:
       - node
       - zsh
   tasks:
-  - include_tasks: dev_envi/dev_envi_tasks.yml
-  - include_tasks: js_reqs/js_reqs_tasks.yml
+    - include: debug.yml
+    - include: dev_envi/ssh.yml
+    - include: dev_envi/dotfiles.yml
+    - include: dev_envi/zsh.yml
+    - include: js_reqs/node.yml
+    #    - debug:
+    #       msg: "{{ lookup('env', 'HOME') }}"
+    #    - debug:
+    #       msg: "{{ lookup('env', 'USR') }}"

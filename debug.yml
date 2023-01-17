@@ -1,0 +1,6 @@
+- name: Debug env HOME
+  ansible.builtin.debug:
+    msg: env HOME is {{ lookup('env','HOME') }}
+- name: Debug env USER
+  ansible.builtin.debug:
+    msg: env USER is {{ lookup('env','USER') }}

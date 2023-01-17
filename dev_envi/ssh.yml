@@ -1,14 +1,12 @@
 - name: Ensure .ssh directory exists.
-  become_user: root
   file:
-    dest: "{{ dest_key | dirname }}"
-    mode: 0700
+    path: "{{ dest_key | dirname }}"
     state: directory
+    mode: 0700
   tags:
   - dotfiles
   - ssh
 - name: Install ssh key
-  become_user: root
   copy:
     src: "{{ source_key }}"
     dest: "{{ dest_key }}"
@@ -20,7 +18,7 @@
   authorized_key:
     user: "{{ lookup('ansible.builtin.env', 'USER') }}"
     state: present
-    key: "{{ lookup('ansible.builtin.env', 'HOME') }}/.ssh/id_rsa.pub"
+    key: "{{ lookup('file', pub_key) }}"
   tags:
   - dotfiles
   - ssh
