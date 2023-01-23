@@ -4,3 +4,6 @@
 - name: Debug env USER
   ansible.builtin.debug:
     msg: env USER is {{ lookup('env','USER') }}
+- name: Debug var pub_key
+  ansible.builtin.debug:
+    msg: var pub_key is {{ pub_key }}

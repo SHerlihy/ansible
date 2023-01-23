@@ -1,0 +1,14 @@
+- name: Start ssh agent
+  shell: eval "$(ssh-agent -s)"
+  tags:
+  - ssh
+
+- name: ssh from key
+  shell: ssh-add {{ dest_key }}
+  tags:
+  - ssh
+
+- name: test ssh with github
+  shell: ssh -T git@github.com
+  tags:
+  - ssh

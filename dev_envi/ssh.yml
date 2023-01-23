@@ -6,7 +6,7 @@
   tags:
   - dotfiles
   - ssh
-- name: Install ssh key
+- name: Install ssh private key
   copy:
     src: "{{ source_key }}"
     dest: "{{ dest_key }}"
@@ -14,11 +14,19 @@
   tags:
   - dotfiles
   - ssh
-- name: Set authorized key took from file
+- name: Install ssh public key
+  copy:
+    src: "{{ pub_key }}"
+    dest: "{{ dest_key }}.pub"
+    mode: 0644
+  tags:
+  - dotfiles
+  - ssh
+- name: Set authorized key in root
   authorized_key:
-    user: "{{ lookup('ansible.builtin.env', 'USER') }}"
+    user: "{{ lookup('env', 'USER') }}"
     state: present
-    key: "{{ lookup('file', pub_key) }}"
+    key: "{{ lookup('file', '{{ dest_key }}.pub') }}"
   tags:
   - dotfiles
   - ssh
