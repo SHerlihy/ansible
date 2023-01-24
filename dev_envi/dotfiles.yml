@@ -2,7 +2,7 @@
   ansible.builtin.git:
     repo: 'git@github.com:SHerlihy/.dotfiles.git'
     dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
-    ssh_opts: "IdentityFile={{ dest_key }}" 
+    key_file: "{{ dest_key }}"
     recursive: yes
     update: yes
     accept_hostkey: yes
