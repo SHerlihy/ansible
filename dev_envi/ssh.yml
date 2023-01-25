@@ -24,7 +24,7 @@
   - ssh
 - name: Set authorized key in root
   authorized_key:
-    user: "{{ lookup('env', 'USER') }}"
+    user: root
     state: present
     key: "{{ lookup('file', '{{ dest_key }}.pub') }}"
   tags:
