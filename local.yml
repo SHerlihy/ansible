@@ -16,6 +16,7 @@
   tasks:
     - include: debug.yml
     - include: dev_envi/decrypt.yml
+    - include: dev_envi/software.yml
     - include: dev_envi/ssh.yml
     - include: dev_envi/ssh_agent.yml
     - include: dev_envi/dotfiles.yml

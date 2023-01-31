@@ -1,0 +1,29 @@
+- name: install vim
+  apt: name=vim
+  tags:
+  - vim
+
+- name: install ripgrep
+  shell: curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb && dpkg -i ripgrep_13.0.0_amd64.deb
+  tags:
+  - neovim
+
+- name: install neovim
+  shell: add-apt-repository ppa:neovim-ppa/unstable && apt-get update && apt-get install neovim
+  tags:
+  - neovim
+
+- name: clone packer nvim
+  ansible.builtin.git:
+    repo: 'https://github.com/wbthomason/packer.nvim.git'
+    dest: "~/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    depth: 1
+    single_branch: yes
+    version: master
+  tags:
+  - neovim
+
+- name: install stow
+  apt: name=stow
+  tags:
+  - stow
