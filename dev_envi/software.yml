@@ -9,7 +9,7 @@
   - neovim
 
 - name: install neovim
-  shell: add-apt-repository ppa:neovim-ppa/unstable && apt-get update && apt-get install neovim
+  shell: add-apt-repository -y ppa:neovim-ppa/unstable && apt-get -y update && apt-get -y install neovim
   tags:
   - neovim
 
