@@ -13,6 +13,11 @@
   tags:
   - neovim
 
+-name: install c++ std libs
+  shell: apt install libstdc++-12-dev
+  tags:
+  - c++
+
 - name: clone packer nvim
   ansible.builtin.git:
     repo: 'https://github.com/wbthomason/packer.nvim.git'
